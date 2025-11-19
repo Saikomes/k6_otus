@@ -1,0 +1,1046 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 7,
+  "iteration": 1585754782572,
+  "links": [],
+  "panels": [
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "fill": 1,
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 10,
+      "interval": "",
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "namedprocess_namegroup_memory_bytes{groupname=~\"$processes\", memtype=\"virtual\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{groupname}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "VSS Memory",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "fill": 1,
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 0,
+        "y": 7
+      },
+      "id": 12,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "namedprocess_namegroup_memory_bytes{groupname=~\"$processes\", memtype=\"swapped\"}",
+          "format": "time_series",
+          "intervalFactor": 2,
+          "legendFormat": "{{groupname}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Swapped Memory",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fill": 1,
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 12,
+        "y": 7
+      },
+      "id": 8,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "namedprocess_namegroup_memory_bytes{groupname=~\"$processes\", memtype=\"resident\"}",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "{{groupname}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "RSS Memory",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "fill": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 13
+      },
+      "id": 6,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "rate(namedprocess_namegroup_cpu_seconds_total{groupname=~\"$processes\"}[$interval])*100",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "{{groupname}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "CPU avg %",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "percent",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fill": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 13
+      },
+      "id": 4,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "rate(namedprocess_namegroup_cpu_seconds_total{groupname=~\"$processes\"}[$interval])",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "{{groupname}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "CPU avg time",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "s",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fill": 1,
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 21
+      },
+      "id": 2,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "namedprocess_namegroup_num_procs{groupname=~\"$processes\"}",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "{{groupname}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Кол-во процессов",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    }
+  ],
+  "schemaVersion": 18,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "tags": [],
+          "text": "grafana-server + md5sum + process-exporte + prometheus + tmux + vim",
+          "value": [
+            "grafana-server",
+            "md5sum",
+            "process-exporte",
+            "prometheus",
+            "tmux",
+            "vim"
+          ]
+        },
+        "datasource": "Prometheus",
+        "definition": "label_values(namedprocess_namegroup_cpu_seconds_total,groupname)",
+        "hide": 0,
+        "includeAll": true,
+        "label": null,
+        "multi": true,
+        "name": "processes",
+        "options": [
+          {
+            "selected": false,
+            "text": "All",
+            "value": "$__all"
+          },
+          {
+            "selected": false,
+            "text": "(sd-pam)",
+            "value": "(sd-pam)"
+          },
+          {
+            "selected": false,
+            "text": "-bash",
+            "value": "-bash"
+          },
+          {
+            "selected": false,
+            "text": "/sbin/agetty",
+            "value": "/sbin/agetty"
+          },
+          {
+            "selected": false,
+            "text": "/sbin/auditd",
+            "value": "/sbin/auditd"
+          },
+          {
+            "selected": false,
+            "text": "/sbin/rngd",
+            "value": "/sbin/rngd"
+          },
+          {
+            "selected": false,
+            "text": "/usr/bin/containerd",
+            "value": "/usr/bin/containerd"
+          },
+          {
+            "selected": false,
+            "text": "/usr/bin/dbus-daemon",
+            "value": "/usr/bin/dbus-daemon"
+          },
+          {
+            "selected": false,
+            "text": "/usr/bin/dockerd",
+            "value": "/usr/bin/dockerd"
+          },
+          {
+            "selected": false,
+            "text": "/usr/bin/process-exporter",
+            "value": "/usr/bin/process-exporter"
+          },
+          {
+            "selected": false,
+            "text": "/usr/bin/prometheus",
+            "value": "/usr/bin/prometheus"
+          },
+          {
+            "selected": false,
+            "text": "/usr/bin/qemu-ga",
+            "value": "/usr/bin/qemu-ga"
+          },
+          {
+            "selected": false,
+            "text": "/usr/lib/polkit-1/polkitd",
+            "value": "/usr/lib/polkit-1/polkitd"
+          },
+          {
+            "selected": false,
+            "text": "/usr/lib/systemd/systemd",
+            "value": "/usr/lib/systemd/systemd"
+          },
+          {
+            "selected": false,
+            "text": "/usr/lib/systemd/systemd-journald",
+            "value": "/usr/lib/systemd/systemd-journald"
+          },
+          {
+            "selected": false,
+            "text": "/usr/lib/systemd/systemd-logind",
+            "value": "/usr/lib/systemd/systemd-logind"
+          },
+          {
+            "selected": false,
+            "text": "/usr/lib/systemd/systemd-resolved",
+            "value": "/usr/lib/systemd/systemd-resolved"
+          },
+          {
+            "selected": false,
+            "text": "/usr/lib/systemd/systemd-udevd",
+            "value": "/usr/lib/systemd/systemd-udevd"
+          },
+          {
+            "selected": false,
+            "text": "/usr/libexec/platform-python",
+            "value": "/usr/libexec/platform-python"
+          },
+          {
+            "selected": false,
+            "text": "/usr/libexec/sssd/sssd_be",
+            "value": "/usr/libexec/sssd/sssd_be"
+          },
+          {
+            "selected": false,
+            "text": "/usr/libexec/sssd/sssd_nss",
+            "value": "/usr/libexec/sssd/sssd_nss"
+          },
+          {
+            "selected": false,
+            "text": "/usr/sbin/NetworkManager",
+            "value": "/usr/sbin/NetworkManager"
+          },
+          {
+            "selected": false,
+            "text": "/usr/sbin/chronyd",
+            "value": "/usr/sbin/chronyd"
+          },
+          {
+            "selected": false,
+            "text": "/usr/sbin/crond",
+            "value": "/usr/sbin/crond"
+          },
+          {
+            "selected": false,
+            "text": "/usr/sbin/grafana-server",
+            "value": "/usr/sbin/grafana-server"
+          },
+          {
+            "selected": false,
+            "text": "/usr/sbin/irqbalance",
+            "value": "/usr/sbin/irqbalance"
+          },
+          {
+            "selected": false,
+            "text": "/usr/sbin/rsyslogd",
+            "value": "/usr/sbin/rsyslogd"
+          },
+          {
+            "selected": false,
+            "text": "/usr/sbin/sshd",
+            "value": "/usr/sbin/sshd"
+          },
+          {
+            "selected": false,
+            "text": "/usr/sbin/sssd",
+            "value": "/usr/sbin/sssd"
+          },
+          {
+            "selected": false,
+            "text": "NetworkManager",
+            "value": "NetworkManager"
+          },
+          {
+            "selected": false,
+            "text": "agetty",
+            "value": "agetty"
+          },
+          {
+            "selected": false,
+            "text": "auditd",
+            "value": "auditd"
+          },
+          {
+            "selected": false,
+            "text": "bash",
+            "value": "bash"
+          },
+          {
+            "selected": false,
+            "text": "chronyd",
+            "value": "chronyd"
+          },
+          {
+            "selected": false,
+            "text": "containerd",
+            "value": "containerd"
+          },
+          {
+            "selected": false,
+            "text": "crond",
+            "value": "crond"
+          },
+          {
+            "selected": false,
+            "text": "dbus-daemon",
+            "value": "dbus-daemon"
+          },
+          {
+            "selected": false,
+            "text": "dockerd",
+            "value": "dockerd"
+          },
+          {
+            "selected": false,
+            "text": "firewalld",
+            "value": "firewalld"
+          },
+          {
+            "selected": true,
+            "text": "grafana-server",
+            "value": "grafana-server"
+          },
+          {
+            "selected": false,
+            "text": "irqbalance",
+            "value": "irqbalance"
+          },
+          {
+            "selected": true,
+            "text": "md5sum",
+            "value": "md5sum"
+          },
+          {
+            "selected": false,
+            "text": "polkitd",
+            "value": "polkitd"
+          },
+          {
+            "selected": true,
+            "text": "process-exporte",
+            "value": "process-exporte"
+          },
+          {
+            "selected": true,
+            "text": "prometheus",
+            "value": "prometheus"
+          },
+          {
+            "selected": false,
+            "text": "qemu-ga",
+            "value": "qemu-ga"
+          },
+          {
+            "selected": false,
+            "text": "rngd",
+            "value": "rngd"
+          },
+          {
+            "selected": false,
+            "text": "rsyslogd",
+            "value": "rsyslogd"
+          },
+          {
+            "selected": false,
+            "text": "sshd",
+            "value": "sshd"
+          },
+          {
+            "selected": false,
+            "text": "sshd: [accepted]",
+            "value": "sshd: [accepted]"
+          },
+          {
+            "selected": false,
+            "text": "sshd: [net]",
+            "value": "sshd: [net]"
+          },
+          {
+            "selected": false,
+            "text": "sshd: root [net]",
+            "value": "sshd: root [net]"
+          },
+          {
+            "selected": false,
+            "text": "sshd: root [priv]",
+            "value": "sshd: root [priv]"
+          },
+          {
+            "selected": false,
+            "text": "sshd: root@pts/0",
+            "value": "sshd: root@pts/0"
+          },
+          {
+            "selected": false,
+            "text": "sshd: unknown [net]",
+            "value": "sshd: unknown [net]"
+          },
+          {
+            "selected": false,
+            "text": "sshd: unknown [priv]",
+            "value": "sshd: unknown [priv]"
+          },
+          {
+            "selected": false,
+            "text": "sssd",
+            "value": "sssd"
+          },
+          {
+            "selected": false,
+            "text": "sssd_be",
+            "value": "sssd_be"
+          },
+          {
+            "selected": false,
+            "text": "sssd_nss",
+            "value": "sssd_nss"
+          },
+          {
+            "selected": false,
+            "text": "systemd",
+            "value": "systemd"
+          },
+          {
+            "selected": false,
+            "text": "systemd-journal",
+            "value": "systemd-journal"
+          },
+          {
+            "selected": false,
+            "text": "systemd-logind",
+            "value": "systemd-logind"
+          },
+          {
+            "selected": false,
+            "text": "systemd-resolve",
+            "value": "systemd-resolve"
+          },
+          {
+            "selected": false,
+            "text": "systemd-udevd",
+            "value": "systemd-udevd"
+          },
+          {
+            "selected": true,
+            "text": "tmux",
+            "value": "tmux"
+          },
+          {
+            "selected": false,
+            "text": "tmux: client",
+            "value": "tmux: client"
+          },
+          {
+            "selected": false,
+            "text": "tmux: server",
+            "value": "tmux: server"
+          },
+          {
+            "selected": false,
+            "text": "tuned",
+            "value": "tuned"
+          },
+          {
+            "selected": true,
+            "text": "vim",
+            "value": "vim"
+          }
+        ],
+        "query": "label_values(namedprocess_namegroup_cpu_seconds_total,groupname)",
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "auto": false,
+        "auto_count": 30,
+        "auto_min": "10s",
+        "current": {
+          "text": "1d",
+          "value": "1d"
+        },
+        "hide": 0,
+        "label": null,
+        "name": "interval",
+        "options": [
+          {
+            "selected": false,
+            "text": "1m",
+            "value": "1m"
+          },
+          {
+            "selected": false,
+            "text": "5m",
+            "value": "5m"
+          },
+          {
+            "selected": false,
+            "text": "10m",
+            "value": "10m"
+          },
+          {
+            "selected": false,
+            "text": "15m",
+            "value": "15m"
+          },
+          {
+            "selected": false,
+            "text": "30m",
+            "value": "30m"
+          },
+          {
+            "selected": false,
+            "text": "1h",
+            "value": "1h"
+          },
+          {
+            "selected": false,
+            "text": "3h",
+            "value": "3h"
+          },
+          {
+            "selected": false,
+            "text": "6h",
+            "value": "6h"
+          },
+          {
+            "selected": false,
+            "text": "12h",
+            "value": "12h"
+          },
+          {
+            "selected": true,
+            "text": "1d",
+            "value": "1d"
+          },
+          {
+            "selected": false,
+            "text": "7d",
+            "value": "7d"
+          },
+          {
+            "selected": false,
+            "text": "14d",
+            "value": "14d"
+          },
+          {
+            "selected": false,
+            "text": "30d",
+            "value": "30d"
+          }
+        ],
+        "query": "1m,5m,10m,15m,30m,1h,3h,6h,12h,1d,7d,14d,30d",
+        "refresh": 2,
+        "skipUrlSync": false,
+        "type": "interval"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "timezone": "",
+  "title": "Мониторинг списка процессов",
+  "uid": "O_wUuX9Zz",
+  "version": 11
+}

@@ -1,0 +1,96 @@
+version: '3.8'
+
+networks:
+  k6:
+  grafana:
+  prometheus:
+
+services:
+  influxdb:
+    image: influxdb:1.8
+    networks:
+      - k6
+      - grafana
+    ports:
+      - "8086:8086"
+    environment:
+      - INFLUXDB_DB=k6
+    volumes:
+      - influxdb-data:/var/lib/influxdb
+  prometheus:    
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus:/etc/prometheus/
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --web.enable-remote-write-receiver
+    networks:
+      - k6
+      - grafana
+      - prometheus
+    ports:
+      - "9090:9090"
+
+  grafana:
+    image: grafana/grafana:8.5.3
+    networks:
+      - grafana
+      - prometheus
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_BASIC_ENABLED=false
+      - GF_USERS_DEFAULT_THEME=light
+    volumes:
+      - ./grafana/config-datasources.yaml:/etc/grafana/provisioning/datasources/datasource.yaml
+      - ./grafana/config-dashboards.yaml:/etc/grafana/provisioning/dashboards/dashboards.yaml
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
+
+  k6:
+    image: grafana/k6:latest
+    networks:
+      - k6
+    ports:
+      - "6565:6565"
+    environment:
+      - K6_OUT=influxdb=http://influxdb:8086/k6
+    volumes:
+      - ./scripts:/scripts
+  
+  node-exporter:
+    image: prom/node-exporter
+    networks:
+      - k6
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    container_name: exporter
+    hostname: exporter
+    command:
+      - --collector.processes
+      - --path.procfs=/host/proc
+      - --path.sysfs=/host/sys
+      - --collector.filesystem.ignored-mount-points
+      - ^/(sys|proc|dev|host|etc|rootfs/var/lib/docker/containers|rootfs/var/lib/docker/overlay2|rootfs/run/docker/netns|rootfs/var/lib/docker/aufs)($$|/)
+    ports:
+      - 9100:9100
+  process-exporter:
+    image: ncabatoff/process-exporter
+    networks:
+      - k6
+    volumes:
+      - /proc:/host/proc
+      - ./process-exporter:/etc/process-exporter/
+    container_name: process_exporter
+    hostname: process_exporter
+    privileged: true
+    command:
+      - --procfs=/host/proc
+      - --config.path=/etc/process-exporter/process-exporter.yml
+    ports:
+      - 9256:9256
+volumes:
+  influxdb-data:
